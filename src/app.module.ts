@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { databaseInfo } from './db';
+import { ExercisesModule } from './exercises/exercises.module';
+import { exercises } from './entities/exercises';
 
 @Module({
   imports: [
@@ -13,9 +15,11 @@ import { databaseInfo } from './db';
       username: databaseInfo.username,
       password: databaseInfo.password,
       database: 'gym_routine_organizer',
-      entities: [],
+      entities: [exercises],
       synchronize: false,
+      autoLoadEntities: true,
     }),
+    ExercisesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
