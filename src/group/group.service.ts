@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { Group } from 'src/entities/group.entity';
-import { CreateExerciseDTO } from 'src/exercises/dto/create-exercise.dto';
 import { DataSource } from 'typeorm';
 import { GroupDto } from './dto/group.dto';
 
@@ -17,7 +16,7 @@ export class GroupService {
     }
   }
 
-  async findAll(): Promise<Group[]> {
+  async findAll(): Promise<GroupDto[]> {
     try {
       return await this.groupRepository.find();
     } catch (error) {
