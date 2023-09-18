@@ -12,8 +12,8 @@ export class exercises {
   @Column()
   group: string;
 
-  @Column()
-  exercise_for: string;
+  @Column({ name: 'exercise_for' })
+  exerciseFor: string;
 
   @Column('simple-array')
   steps: string[];

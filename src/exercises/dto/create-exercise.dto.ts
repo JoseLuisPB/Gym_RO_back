@@ -1,7 +1,9 @@
 export class CreateExerciseDTO {
   name: string;
-  type: string;
+  group: string;
+  exerciseFor: string;
   steps: string[];
   difficulty?: number;
+  favorite?: boolean;
   gear?: string[];
 }
