@@ -4,8 +4,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { databaseInfo } from './db';
 import { ExercisesModule } from './exercises/exercises.module';
-import { exercises } from './entities/exercises.entity';
+import { Exercises } from './entities/exercises.entity';
 import { UtilsService } from './utils/utils.service';
+import { Group } from './entities/group.entity';
+import { GroupModule } from './group/group.module';
 
 @Module({
   imports: [
@@ -16,11 +18,12 @@ import { UtilsService } from './utils/utils.service';
       username: databaseInfo.username,
       password: databaseInfo.password,
       database: 'gym_routine_organizer',
-      entities: [exercises],
+      entities: [Exercises, Group],
       synchronize: false,
       autoLoadEntities: true,
     }),
     ExercisesModule,
+    GroupModule,
   ],
   controllers: [AppController],
   providers: [AppService, UtilsService],
