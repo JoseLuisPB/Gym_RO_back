@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { CreateExerciseDTO } from './dto/create-exercise.dto';
 import { DataSource } from 'typeorm';
-import { exercises } from 'src/entities/exercises.entity';
+import { Exercises } from 'src/entities/exercises.entity';
 
 @Injectable()
 export class ExercisesService {
-  private readonly exerciseRepository = this.dataSource.getRepository(exercises);
+  private readonly exerciseRepository = this.dataSource.getRepository(Exercises);
   constructor(private dataSource: DataSource) {}
 
   async create(exercise: CreateExerciseDTO) {
