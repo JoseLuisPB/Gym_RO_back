@@ -10,7 +10,10 @@ export class exercises {
   name: string;
 
   @Column()
-  type: string;
+  group: string;
+
+  @Column()
+  exercise_for: string;
 
   @Column('simple-array')
   steps: string[];
@@ -20,4 +23,7 @@ export class exercises {
 
   @Column('simple-array', { nullable: true })
   gear: string[];
+
+  @Column({ type: 'boolean', nullable: true })
+  favorite: boolean;
 }
